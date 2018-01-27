@@ -12,9 +12,9 @@ public class CrtNoiseBehaviour : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider other) {
-        //Destroy(this.gameObject);
+        Destroy(this.gameObject);
         //CRT Effect on Other Player
-        effects.CameraCosePazze(other.gameObject);
+        if (effects != null) effects.CameraCRTNoise(other.gameObject);
 
     }
 }

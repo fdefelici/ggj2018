@@ -17,10 +17,14 @@ public class PlayerJump : MonoBehaviour
     private PlayerMovement movement;
     private bool gravityEnabled;
 
+    public AudioClip jumpClip;
+    private AudioSource audioSource;
+
     void Awake()
     {
         controller = GetComponent<CharacterController>();
         movement = GetComponent<PlayerMovement>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -41,7 +45,9 @@ public class PlayerJump : MonoBehaviour
         {
             gravityEnabled = true;
             gravityAccumulator = jumpForce;
-            Debug.Log("jump");
+            //play sound
+            //audioSource.clip = jumpClip;
+            audioSource.Play();
         }
     }
 
