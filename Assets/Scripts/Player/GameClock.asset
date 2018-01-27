@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072cff20a056d0f47a90be0eda988e42, type: 3}
+  m_Name: GameClock
+  m_EditorClassIdentifier: 
+  zero: {fileID: 21300000, guid: 4d2f9aba945594d458ce98609082f297, type: 3}
+  one: {fileID: 21300000, guid: 1d99823006cded74ca58fede97457359, type: 3}
+  two: {fileID: 21300000, guid: e5ba989bf0cd3254aa4e1bf3cd7287dc, type: 3}
+  three: {fileID: 21300000, guid: 9bfc883e6abbae3498ebfd893f0781fb, type: 3}
+  four: {fileID: 21300000, guid: bf5c8d23a1fa55d47b4d47669e90706c, type: 3}
+  five: {fileID: 21300000, guid: 45f10f2e13667604d83630117915df77, type: 3}
+  six: {fileID: 21300000, guid: 75f51d0a1dd677344a71302e3b2841f0, type: 3}
+  seven: {fileID: 21300000, guid: 5b1b5418bec209745b20426f2ec05703, type: 3}
+  eight: {fileID: 21300000, guid: 43b387815788ea74a92bee6389a9f089, type: 3}
+  nine: {fileID: 21300000, guid: 0287e43b1e9c0db40a9c6c2e73200862, type: 3}
