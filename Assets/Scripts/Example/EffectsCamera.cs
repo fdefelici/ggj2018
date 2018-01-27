@@ -7,6 +7,8 @@ public class EffectsCamera : MonoBehaviour {
 
     public Transform player1;
     public Transform player2;
+    public Transform camera1;
+    public Transform camera2;
 
     public float swapSpeed;
     [Tooltip("Also define the speed of rotation. (ex. 3 seconds have a 120 degree per second of speed)")]
@@ -34,7 +36,8 @@ public class EffectsCamera : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.M))
         {
-            CameraSwap();
+            //CameraSwap();
+            CameraRotate();
         }
     }
 
@@ -89,12 +92,24 @@ public class EffectsCamera : MonoBehaviour {
 
     }
 
-    //private IEnumerator Rotate()
-    //{
-    //    for (int i = 0; i < length; i++)
-    //    {
 
-    //    }
-    //}
+    public void CameraRotate()
+    {
+        rot = Rotate();
+        StartCoroutine(rot);
+    }
+
+    private IEnumerator Rotate()
+    {
+        Quaternion startRotCamera1 = camera1.rotation;
+
+        for (float i = 0; i < rotateDuration; i+= Time.deltaTime)
+        {
+            camera1.Rotate(Vector3.forward, 360 / rotateDuration * Time.deltaTime);
+            yield return null;
+        }
+
+        camera1.rotation = startRotCamera1;
+    }
 
 }
