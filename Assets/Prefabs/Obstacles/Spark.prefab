@@ -107,6 +107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b01489303528e419402f6b07c97363, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placement: 0
+  placement: 1
   speed: 2
   envConfig: {fileID: 11400000, guid: 377103d0356bf734e91ab06574f8f823, type: 2}
