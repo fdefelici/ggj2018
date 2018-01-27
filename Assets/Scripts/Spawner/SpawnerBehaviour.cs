@@ -33,7 +33,9 @@ public class SpawnerBehaviour : MonoBehaviour {
         elapsedTime = 0;
 
         GameObject obstaclePrefab = pickObjToSpawn();
+        //Debug.Log(obstaclePrefab.name);
         ObstacleBeahviour obs = obstaclePrefab.GetComponent<ObstacleBeahviour>();
+
 
         float width = envConfig.GetWidthInMeters();
         float length = envConfig.GetLengthInMeters();

@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 33132434791563192}
   - component: {fileID: 135135876134773770}
   - component: {fileID: 23909614489215706}
-  - component: {fileID: 114689653548228538}
-  - component: {fileID: 114640430780775158}
+  - component: {fileID: 114234338754374784}
+  - component: {fileID: 114690506750715986}
   m_Layer: 0
   m_Name: SwitchPlayersPerk
   m_TagString: Untagged
@@ -85,7 +85,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1357256059068282}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114640430780775158
+--- !u!114 &114234338754374784
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -93,22 +93,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1357256059068282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcf559d1b29570140b245bec4630a3fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114689653548228538
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1357256059068282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 352e02c08cf3d7d4e88911dfdeaca514, type: 3}
+  m_Script: {fileID: 11500000, guid: 365c5cc9d0f0c1a4a9c1dfe3c3ab004c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   placement: 0
   envConfig: {fileID: 11400000, guid: 377103d0356bf734e91ab06574f8f823, type: 2}
+--- !u!114 &114690506750715986
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1357256059068282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0b6a0ef4023ac94c99e84e8b3080a28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135135876134773770
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwitchPlayerBehaviour : MonoBehaviour {
+public class CrtNoiseBehaviour : MonoBehaviour {
 
     private EffectsCamera effects;
     void Awake()
@@ -12,9 +12,9 @@ public class SwitchPlayerBehaviour : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider other) {
-        Destroy(this.gameObject);
-        //TODO: Switch Players Path
-        effects.SwitchPlayer();
-        Debug.Log("cazzo");
+        //Destroy(this.gameObject);
+        //CRT Effect on Other Player
+        effects.CameraCosePazze(other.gameObject);
+
     }
 }
