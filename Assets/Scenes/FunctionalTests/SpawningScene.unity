@@ -455,11 +455,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114192186521809828, guid: 21dc84eb7104f2e468008a860a9ec08f,
-        type: 2}
-      propertyPath: perks.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4041846585879090, guid: 21dc84eb7104f2e468008a860a9ec08f, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -492,45 +487,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114192186521809828, guid: 21dc84eb7104f2e468008a860a9ec08f,
-        type: 2}
-      propertyPath: level
-      value: 
-      objectReference: {fileID: 1678986246}
-    - target: {fileID: 114192186521809828, guid: 21dc84eb7104f2e468008a860a9ec08f,
-        type: 2}
-      propertyPath: spawnTimeRateInSeconds
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114192186521809828, guid: 21dc84eb7104f2e468008a860a9ec08f,
-        type: 2}
-      propertyPath: SpawnObstacleChance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114192186521809828, guid: 21dc84eb7104f2e468008a860a9ec08f,
-        type: 2}
-      propertyPath: perks.Array.data[1]
-      value: 
-      objectReference: {fileID: 1357256059068282, guid: 87eb4e582706d8749a78056a6311b70c,
-        type: 2}
-    - target: {fileID: 114192186521809828, guid: 21dc84eb7104f2e468008a860a9ec08f,
-        type: 2}
-      propertyPath: perks.Array.data[2]
-      value: 
-      objectReference: {fileID: 1357256059068282, guid: 87eb4e582706d8749a78056a6311b70c,
-        type: 2}
-    - target: {fileID: 114192186521809828, guid: 21dc84eb7104f2e468008a860a9ec08f,
-        type: 2}
-      propertyPath: perks.Array.data[3]
-      value: 
-      objectReference: {fileID: 1357256059068282, guid: 87eb4e582706d8749a78056a6311b70c,
-        type: 2}
-    - target: {fileID: 114192186521809828, guid: 21dc84eb7104f2e468008a860a9ec08f,
-        type: 2}
-      propertyPath: perks.Array.data[0]
-      value: 
-      objectReference: {fileID: 1357256059068282, guid: 3e50a14e530a7b7418fcec5cffd02d5e,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 21dc84eb7104f2e468008a860a9ec08f, type: 2}
   m_IsPrefabParent: 0
