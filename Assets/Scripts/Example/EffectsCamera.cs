@@ -9,6 +9,10 @@ public class EffectsCamera : MonoBehaviour {
     public Transform player2;
     public Transform camera1;
     public Transform camera2;
+    [Range(-1,1)][Tooltip("The direction of the rotation")]
+    public int camera1Direction = -1;
+    [Range(-1, 1)][Tooltip("The direction of the rotation")]
+    public int camera2Direction = 1;
 
     public float swapSpeed;
     [Tooltip("Also define the speed of rotation. (ex. 3 seconds have a 120 degree per second of speed)")]
@@ -102,14 +106,17 @@ public class EffectsCamera : MonoBehaviour {
     private IEnumerator Rotate()
     {
         Quaternion startRotCamera1 = camera1.rotation;
+        Quaternion startRotCamera2 = camera2.rotation;
 
         for (float i = 0; i < rotateDuration; i+= Time.deltaTime)
         {
-            camera1.Rotate(Vector3.forward, 360 / rotateDuration * Time.deltaTime);
+            camera1.Rotate(Vector3.forward, 360 / rotateDuration * Time.deltaTime * camera1Direction);
+            camera2.Rotate(Vector3.forward, 360 / rotateDuration * Time.deltaTime * camera2Direction);
             yield return null;
         }
 
         camera1.rotation = startRotCamera1;
+        camera2.rotation = startRotCamera2;
     }
 
 }
