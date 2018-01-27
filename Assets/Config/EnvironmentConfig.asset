@@ -16,3 +16,4 @@ MonoBehaviour:
   lengthInBlock: 4
   blockSizeInMeters: 2.5
   baseSpeed: 15.25
+  perkRotationSpeed: 360

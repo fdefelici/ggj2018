@@ -20,6 +20,8 @@ public class EnvironmentProps : ScriptableObject {
     [Header("Rhythm Parameters")]
     [SerializeField]
     private float baseSpeed = 2.0f;
+    [SerializeField]
+    private float perkRotationSpeed = 2.0f;
 
     public float GetBaseSpeed() {
         return baseSpeed;
@@ -42,5 +44,10 @@ public class EnvironmentProps : ScriptableObject {
     }
     public float GetLengthInMeters() {
         return lengthInBlock * blockSizeInMeters;
+    }
+
+    public float GetPerkRotationSpeed()
+    {
+        return perkRotationSpeed;
     }
 }

@@ -7,8 +7,9 @@ public class PerkBeahviour : ObstacleBeahviour {
 	}
 	
 	void Update () {
-        //SOSTITUIRE CON IL MOVIMENTO USANDO IL RIGIDBODY in FIXED UPDATE
-        transform.Translate(-1*Vector3.forward * Time.deltaTime * GetSpeed());
+        transform.Rotate(Vector3.up * (GetEnvConfig().GetPerkRotationSpeed() * Time.deltaTime));
+        //Non uso transform.Translate poiche altrimenti l'oggetto routerebbe circolarmente
+        transform.position += -1 * Vector3.forward * Time.deltaTime * GetSpeed();
     }
 
 }
