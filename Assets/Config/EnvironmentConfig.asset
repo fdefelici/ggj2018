@@ -13,4 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heightInBlock: 3
   widthInBlock: 4
+  lengthInBlock: 4
   blockSizeInMeters: 2.5
+  baseSpeed: 15.25
+  perkRotationSpeed: 360

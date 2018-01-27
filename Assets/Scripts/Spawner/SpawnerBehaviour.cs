@@ -6,32 +6,24 @@ using UnityEngine;
 public class SpawnerBehaviour : MonoBehaviour {
 
     [SerializeField]
-    private GameObject level;
-    [SerializeField]
     private EnvironmentProps envConfig;
-
-    private float width;
-    private float lenght;
 
     //TODO: Spawning Algorithm
     //TODO: Destroy linked with pooling
-    //TODO: After spawning set Visible when enter the background?!
     [SerializeField]
     List<GameObject> obstacles;
+    [SerializeField]
+    List<GameObject> perks;
 
     [SerializeField]
+    private float SpawnObstacleChance = 0.8f;
+    [SerializeField]
     private float spawnTimeRateInSeconds = 2.0f;
+    [SerializeField]
+    private float SpawnDepthOffset = 10f;
 
     private float elapsedTime = 0.0f;
 
-    void Awake() {
-        Renderer render = level.GetComponent<Renderer>();
-        Vector3 size = render.bounds.size;
-        //Debug.Log("Render size: " + size);
-        width = size.x;
-        lenght = size.z;
-    }
-	
 	void Update() {
         if (elapsedTime < spawnTimeRateInSeconds) {
             elapsedTime += Time.deltaTime;
@@ -40,24 +32,40 @@ public class SpawnerBehaviour : MonoBehaviour {
 
         elapsedTime = 0;
 
-        GameObject obstaclePrefab = pickObstacleToSpawn();
+        GameObject obstaclePrefab = pickObjToSpawn();
+        //Debug.Log(obstaclePrefab.name);
         ObstacleBeahviour obs = obstaclePrefab.GetComponent<ObstacleBeahviour>();
-        
+
+
+        float width = envConfig.GetWidthInMeters();
+        float length = envConfig.GetLengthInMeters();
+
         float randomXBlock = UnityEngine.Random.Range(0, envConfig.GetWidthInBlock());
         float randomYBlock = (int)obs.GetPlacement();
-        float randomX = -width/2 + (randomXBlock * envConfig.GetBlockSizeInMeters() + envConfig.GetBlockSizeInMeters() /2);
-        float randomY = randomYBlock * envConfig.GetBlockSizeInMeters() + envConfig.GetBlockSizeInMeters()/2;
+        float xPos = -width/2 + (randomXBlock * envConfig.GetBlockSizeInMeters() + envConfig.GetBlockSizeInMeters() /2);
+        float yPos = randomYBlock * envConfig.GetBlockSizeInMeters() + envConfig.GetBlockSizeInMeters()/2;
+        float zPos = length / 2 + SpawnDepthOffset;
+
 
         GameObject instance = Instantiate(obstaclePrefab, transform, true);
-        //GameObject instance = Instantiate(obstaclePrefab, level.transform, true);
-        instance.transform.position = new Vector3(randomX, randomY, lenght/2);
+        instance.transform.position = new Vector3(xPos, yPos, zPos);
         instance.transform.rotation = Quaternion.identity;
-
     }
 
-    private GameObject pickObstacleToSpawn() {
-        int size = obstacles.Count;
-        int index = UnityEngine.Random.Range(0, size);
-        return obstacles[index];
+    private GameObject pickObjToSpawn() {
+        GameObject picked = null;
+        float drawDice = UnityEngine.Random.Range(1, 100) / 100.0f;
+        if (drawDice <= SpawnObstacleChance) {
+            int size = obstacles.Count;
+            int index = UnityEngine.Random.Range(0, size);
+            picked = obstacles[index];
+        } else {
+            int size = perks.Count;
+            int index = UnityEngine.Random.Range(0, size);
+            picked = perks[index];
+        }
+        return picked;
     }
+
+   
 }
