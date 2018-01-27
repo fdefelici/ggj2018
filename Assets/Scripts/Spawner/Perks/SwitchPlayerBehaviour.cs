@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ContrastBehaviour : MonoBehaviour {
+public class SwitchPlayerBehaviour : MonoBehaviour {
 
     private EffectsCamera effects;
     void Awake()
@@ -13,8 +13,6 @@ public class ContrastBehaviour : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
         Destroy(this.gameObject);
-        //TODO: Contrast Effect on Other Player
-        effects.CameraCosePazze(other.gameObject);
-
+        if (effects != null) effects.SwitchPlayer();
     }
 }

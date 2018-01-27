@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -493,7 +493,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 549963365}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57f7ac5a5246234458b5f39a0af53aef, type: 3}
+  m_Script: {fileID: 11500000, guid: 335b55de14cb8ef45836262beb03cd0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player1: {fileID: 783955769}
@@ -511,7 +511,7 @@ MonoBehaviour:
   swapTime: 0.2
   swapSpeed: 20
   timeBeforeReturn: 2
-  cosePazzeDuration: 4
+  cosePazzeDuration: 3
   profilePlayer1: {fileID: 11400000, guid: 427680d8f6056af4eb3b847d4a2595ea, type: 2}
   profilePlayer2: {fileID: 11400000, guid: 885eed1cd2d4c4643a22fb83df5a02c5, type: 2}
 --- !u!4 &549963367
