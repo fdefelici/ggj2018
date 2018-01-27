@@ -235,15 +235,5 @@ public class EffectsCamera : MonoBehaviour {
         c1.rect = new Rect(new Vector2(0, 0), new Vector2(0.5f, 1));
         c2.rect = new Rect(new Vector2(0.5f, 0), new Vector2(0.5f, 1));
     }
-
-
-
-
-
-
-    //camera 1
-    // tox = 0.125
-    // toy = 0.5
-    // tow = 0.25
-    // toh = 0.125
+    
 }
