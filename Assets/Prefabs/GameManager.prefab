@@ -51,12 +51,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e89f0bfbb6bbf544b3c4579cb702842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 0}
   envConfig: {fileID: 11400000, guid: 377103d0356bf734e91ab06574f8f823, type: 2}
   obstacles:
   - {fileID: 1201416146425666, guid: c372b138912ef1a459ebbee374731f5f, type: 2}
   - {fileID: 1201416146425666, guid: 87255154052567e4ba87b2a6aab40d09, type: 2}
   - {fileID: 1201416146425666, guid: 2749b0651fc4ff745b5685491930cbac, type: 2}
   perks:
-  - {fileID: 1027822207732262, guid: 1d28d29fd3314544f9ece1a07be7aa4e, type: 2}
-  spawnTimeRateInSeconds: 2
+  - {fileID: 1357256059068282, guid: 3e50a14e530a7b7418fcec5cffd02d5e, type: 2}
+  - {fileID: 1357256059068282, guid: 87eb4e582706d8749a78056a6311b70c, type: 2}
+  SpawnObstacleChance: 0.9
+  spawnTimeRateInSeconds: 5
+  SpawnDepthOffset: 10

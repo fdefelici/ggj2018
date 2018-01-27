@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33378309867990550}
   - component: {fileID: 65718721694937122}
   - component: {fileID: 23617274373311286}
-  - component: {fileID: 114987162576392342}
+  - component: {fileID: 114566677194332942}
   m_Layer: 0
   m_Name: Spark
   m_TagString: Untagged
@@ -96,7 +96,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114987162576392342
+--- !u!114 &114566677194332942
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -104,9 +104,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1201416146425666}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b01489303528e419402f6b07c97363, type: 3}
+  m_Script: {fileID: 11500000, guid: 5eb0b24f9c4f70742ab2128f56f327d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   placement: 1
-  speed: 2
   envConfig: {fileID: 11400000, guid: 377103d0356bf734e91ab06574f8f823, type: 2}
