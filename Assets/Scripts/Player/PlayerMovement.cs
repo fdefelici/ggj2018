@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 newPos = transform.position + (dir * speed * Time.deltaTime);
 
-       // if (IsInScreen(newPos))
+       if (IsInScreen(newPos))
             controller.Move(dir * speed * Time.deltaTime);
     }
 
