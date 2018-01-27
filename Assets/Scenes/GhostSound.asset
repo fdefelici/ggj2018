@@ -11,3 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fbbec2c8a52bd94186e62c10df61e77, type: 3}
   m_Name: GhostSound
   m_EditorClassIdentifier: 
+  Jump: {fileID: 8300000, guid: b71f747416dfd6646851bb5d0c263fc9, type: 3}
+  TakeDisturbation: {fileID: 8300000, guid: cec5fc99ccf78144794f124cbece3c82, type: 3}
+  Hurt: {fileID: 8300000, guid: 70e167cbc5ce9d546948d9f85c544200, type: 3}
+  ChangePosition: {fileID: 8300000, guid: 54c65b879cc1c4f4db7bd033e4eeefe7, type: 3}
