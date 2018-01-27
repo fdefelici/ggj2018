@@ -23,6 +23,13 @@ public class EnvironmentProps : ScriptableObject {
     [SerializeField]
     private float perkRotationSpeed = 2.0f;
 
+    [Header("Disaster Parameters")]
+    [SerializeField]
+    private int rotateCameraAfterSeconds = 60;
+    [SerializeField]
+    private int resizeCameraAfterSeconds = 120;
+
+    
     public float GetBaseSpeed() {
         return baseSpeed;
     }
@@ -49,5 +56,15 @@ public class EnvironmentProps : ScriptableObject {
     public float GetPerkRotationSpeed()
     {
         return perkRotationSpeed;
+    }
+
+    public int GetRotateCameraAfterSeconds()
+    {
+        return rotateCameraAfterSeconds;
+    }
+
+    public int GetResizeCameraAfterSeconds()
+    {
+        return resizeCameraAfterSeconds;
     }
 }

@@ -509,9 +509,9 @@ MonoBehaviour:
   camera1Direction: -1
   camera2Direction: 1
   switchSpeed: 6
-  rotateDuration: 2
+  rotateDuration: 6
   resizeSpeed: 10
-  halfResizeDuration: 0.35
+  halfResizeDuration: 1
   crunchTime: 0.2
   crunchSpeed: 20
   swapTime: 0.2
@@ -1751,6 +1751,23 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 21dc84eb7104f2e468008a860a9ec08f, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1826420925 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1707877333372476, guid: 21dc84eb7104f2e468008a860a9ec08f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1826420924}
+--- !u!114 &1826420926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1826420925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3213ce9ad0398f24d85ff3c919869f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  envConfig: {fileID: 11400000, guid: 377103d0356bf734e91ab06574f8f823, type: 2}
 --- !u!1 &1859477136
 GameObject:
   m_ObjectHideFlags: 0
