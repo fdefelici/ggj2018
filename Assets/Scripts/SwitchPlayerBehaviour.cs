@@ -15,6 +15,5 @@ public class SwitchPlayerBehaviour : MonoBehaviour {
         Destroy(this.gameObject);
         //TODO: Switch Players Path
         effects.SwitchPlayer();
-        Debug.Log("cazzo");
     }
 }

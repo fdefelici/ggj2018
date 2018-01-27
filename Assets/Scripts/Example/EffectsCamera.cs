@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PostProcessing;
 
 public class EffectsCamera : MonoBehaviour {
 
@@ -25,6 +26,8 @@ public class EffectsCamera : MonoBehaviour {
     public float swapSpeed;
     public float timeBeforeReturn;
 
+    public float cosePazzeDuration;
+
 
 
     private IEnumerator switchPlayer;
@@ -33,8 +36,22 @@ public class EffectsCamera : MonoBehaviour {
     private IEnumerator swap;
 
 
+    public PostProcessingProfile profilePlayer1;
+    public PostProcessingProfile profilePlayer2;
+    private PostProcessingProfile activeProfile;
+    private bool cameraFlipped;
 
 
+
+    void Awake()
+    {
+        profilePlayer2.bloom.enabled = false;
+        profilePlayer2.colorGrading.enabled = false;
+        profilePlayer2.grain.enabled = false;
+        profilePlayer1.bloom.enabled = false;
+        profilePlayer1.colorGrading.enabled = false;
+        profilePlayer1.grain.enabled = false;
+    }
 
     // Use this for initialization
     void Start()
@@ -56,7 +73,29 @@ public class EffectsCamera : MonoBehaviour {
         }
     }
 
-    
+
+    public void CameraCosePazze(GameObject hitGameobject)
+    {
+        if(hitGameobject == player1.gameObject)
+        {
+            activeProfile = (cameraFlipped ? profilePlayer1 : profilePlayer2);
+        }
+        else 
+        {
+            activeProfile = (cameraFlipped ? profilePlayer2 : profilePlayer1);
+        }
+        activeProfile.bloom.enabled = true;
+        activeProfile.colorGrading.enabled = true;
+        activeProfile.grain.enabled = true;
+        StartCoroutine("DisableCosePazze");
+    }
+    private IEnumerator DisableCosePazze()
+    {
+        yield return new WaitForSeconds(cosePazzeDuration);
+        activeProfile.bloom.enabled = false;
+        activeProfile.colorGrading.enabled = false;
+        activeProfile.grain.enabled = false;
+    }
 
 
     #region BOTH_PLAYER_FUNCTIONS
@@ -132,6 +171,7 @@ public class EffectsCamera : MonoBehaviour {
 
     private IEnumerator Switch()
     {
+        cameraFlipped = !cameraFlipped;
         Vector3 oldP1 = player1.position;
         Vector3 oldP2 = player2.position;
         bool p1Done = false;
