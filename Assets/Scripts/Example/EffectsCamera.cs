@@ -14,17 +14,23 @@ public class EffectsCamera : MonoBehaviour {
     [Range(-1, 1)][Tooltip("The direction of the rotation")]
     public int camera2Direction = 1;
 
-    public float swapSpeed;
+    public float switchSpeed;
     [Tooltip("Also define the speed of rotation. (ex. 3 seconds have a 120 degree per second of speed)")]
     public float rotateDuration;
     public float resizeSpeed;
     public float halfResizeDuration;
+    public float crunchTime;
+    public float crunchSpeed;
+    public float swapTime;
+    public float swapSpeed;
+    public float timeBeforeReturn;
 
 
 
-    private IEnumerator swap;
+    private IEnumerator switchPlayer;
     private IEnumerator rot;
     private IEnumerator resize;
+    private IEnumerator swap;
 
 
 
@@ -45,17 +51,82 @@ public class EffectsCamera : MonoBehaviour {
         {
             //CameraSwap();
             //CameraRotate();
-            CameraResize();
+            //CameraResize();
+            CameraSwapViewport();
         }
     }
 
-    public void CameraSwap()
+    public void CameraSwapViewport()
     {
-        swap = Swap();
+        swap = SwapViewport();
         StartCoroutine(swap);
     }
+    private IEnumerator SwapViewport()
+    {
+        Camera c1 = camera1.GetComponent<Camera>();
+        Camera c2 = camera2.GetComponent<Camera>();
 
-    private IEnumerator Swap()
+        Vector2 sizeGoal1 = new Vector2(c1.rect.size.x,c1.rect.size.y / 2);
+        Vector2 sizeGoal2 = new Vector2(c2.rect.size.x, c2.rect.size.y / 2);
+
+        //schiaccia
+        for (float i = 0; i < crunchTime; i+= Time.deltaTime)
+        {
+            c1.rect = new Rect(c1.rect.position,Vector2.Lerp(c1.rect.size,sizeGoal1, Time.deltaTime * crunchSpeed));
+            c2.rect = new Rect(Vector2.Lerp(c2.rect.position, new Vector2(c2.rect.x,0.5f),Time.deltaTime * crunchSpeed), Vector2.Lerp(c2.rect.size, sizeGoal2, Time.deltaTime * crunchSpeed));
+            yield return null;
+        }
+        //swappa
+        for (float i = 0; i < swapTime; i+= Time.deltaTime)
+        {
+            c1.rect = new Rect(Vector2.Lerp(c1.rect.position, new Vector2(0.5f, c1.rect.position.y), Time.deltaTime * swapSpeed), c1.rect.size);
+            c2.rect = new Rect(Vector2.Lerp(c2.rect.position, new Vector2(0, c2.rect.position.y), Time.deltaTime * swapSpeed), c1.rect.size);
+            yield return null;
+        }
+        //allarga
+        for (float i = 0; i < crunchTime; i+= Time.deltaTime)
+        {
+            c1.rect = new Rect(c1.rect.position, Vector2.Lerp(c1.rect.size, new Vector2(c1.rect.size.x,1), Time.deltaTime * crunchSpeed));
+            c2.rect = new Rect(Vector2.Lerp(c2.rect.position,new Vector2(c2.rect.position.x,0), Time.deltaTime * crunchSpeed), Vector2.Lerp(c2.rect.size, new Vector2(c2.rect.size.x, 1), Time.deltaTime * crunchSpeed));
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(timeBeforeReturn);
+
+
+        //rischiaccia
+        for (float i = 0; i < crunchTime; i += Time.deltaTime)
+        {
+            c1.rect = new Rect(c1.rect.position, Vector2.Lerp(c1.rect.size, sizeGoal1, Time.deltaTime * crunchSpeed));
+            c2.rect = new Rect(Vector2.Lerp(c2.rect.position, new Vector2(c2.rect.x, 0.5f), Time.deltaTime * crunchSpeed), Vector2.Lerp(c2.rect.size, sizeGoal2, Time.deltaTime * crunchSpeed));
+            yield return null;
+        }
+        //riswappa
+        for (float i = 0; i < swapTime; i += Time.deltaTime)
+        {
+            c1.rect = new Rect(Vector2.Lerp(c1.rect.position, new Vector2(0, c1.rect.position.y), Time.deltaTime * swapSpeed), c1.rect.size);
+            c2.rect = new Rect(Vector2.Lerp(c2.rect.position, new Vector2(0.5f, c2.rect.position.y), Time.deltaTime * swapSpeed), c1.rect.size);
+            yield return null;
+        }
+        //riallarga
+        for (float i = 0; i < crunchTime; i += Time.deltaTime)
+        {
+            c1.rect = new Rect(c1.rect.position, Vector2.Lerp(c1.rect.size, new Vector2(c1.rect.size.x, 1), Time.deltaTime * crunchSpeed));
+            c2.rect = new Rect(Vector2.Lerp(c2.rect.position, new Vector2(c2.rect.position.x, 0), Time.deltaTime * crunchSpeed), Vector2.Lerp(c2.rect.size, new Vector2(c2.rect.size.x, 1), Time.deltaTime * crunchSpeed));
+            yield return null;
+        }
+
+        c1.rect = new Rect(new Vector2(), new Vector2(0.5f,1));
+        c2.rect = new Rect(new Vector2(0.5f,0), new Vector2(0.5f, 1));
+    }
+
+    public void SwitchPlayer()
+    {
+        switchPlayer = Switch();
+        StartCoroutine(switchPlayer);
+    }
+
+    private IEnumerator Switch()
     {
         Vector3 oldP1 = player1.position;
         Vector3 oldP2 = player2.position;
@@ -70,7 +141,7 @@ public class EffectsCamera : MonoBehaviour {
         while (true)
         {
             if (Vector3.Distance(player1.position, oldP2) > 0.2f)
-                player1.position = Vector3.Slerp(player1.position, oldP2, Time.deltaTime * swapSpeed);
+                player1.position = Vector3.Slerp(player1.position, oldP2, Time.deltaTime * switchSpeed);
             else
             {
                 player1.position = oldP2;
@@ -78,7 +149,7 @@ public class EffectsCamera : MonoBehaviour {
             }
 
             if (Vector3.Distance(player2.position, oldP1) > 0.2f)
-                player2.position = Vector3.Slerp(player2.position, oldP1, Time.deltaTime * swapSpeed);
+                player2.position = Vector3.Slerp(player2.position, oldP1, Time.deltaTime * switchSpeed);
             else
             {
                 player2.position = oldP1;

@@ -426,10 +426,15 @@ MonoBehaviour:
   camera2: {fileID: 943293601}
   camera1Direction: -1
   camera2Direction: 1
-  swapSpeed: 6
+  switchSpeed: 0
   rotateDuration: 2
   resizeSpeed: 10
   halfResizeDuration: 0.35
+  crunchTime: 0.2
+  crunchSpeed: 20
+  swapTime: 0.2
+  swapSpeed: 20
+  timeBeforeReturn: 2
 --- !u!4 &549963367
 Transform:
   m_ObjectHideFlags: 0
