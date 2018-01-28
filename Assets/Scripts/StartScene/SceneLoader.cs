@@ -27,4 +27,8 @@ public class SceneLoader : MonoBehaviour {
     {
         SceneManager.LoadScene("End");
     }
+     public void LoadMenuScene()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }
