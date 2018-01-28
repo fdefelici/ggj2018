@@ -34,8 +34,8 @@ public class EffectsCamera : MonoBehaviour {
     private IEnumerator resize;
     private IEnumerator swap;
 
-
-   
+    [Header("Player Switch Effect")]
+    public AudioClip switchClip;
 
     [Header("Crt Noise effect")]
     public AudioClip crtNoiseAudioClip;
@@ -223,6 +223,9 @@ public class EffectsCamera : MonoBehaviour {
         player1.GetComponent<PlayerJump>().enabled = false;
         player2.GetComponent<PlayerJump>().enabled = false;
 
+        //play sound
+        audioSource.clip = switchClip;
+        audioSource.Play();
 
         while (true)
         {

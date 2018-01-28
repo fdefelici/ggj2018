@@ -10,12 +10,13 @@ public class CandleBeahviour : ObstacleBeahviour {
         transform.Translate(-1*Vector3.forward * Time.deltaTime * GetSpeed());
     }
 
-    void OnTriggerEnter(Collider collider)
-    {
+    void OnTriggerEnter(Collider collider) {
         //play sound
-
+        GetComponent<AudioSource>().Play();
         //player damage
-        Destroy(gameObject);
-    }
 
+        //Destroy its self
+        gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+    }
+   
 }

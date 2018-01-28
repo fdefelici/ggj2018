@@ -30,9 +30,11 @@ public class SparkBeahviour : ObstacleBeahviour {
     void OnTriggerEnter(Collider collider)
     {
         //play sound
+        GetComponent<AudioSource>().Play();
+        //player damage
 
-        //do damage
-        Destroy(gameObject);
+        //Destroy its self
+        gameObject.GetComponentInChildren<ParticleSystem>().Stop();
     }
 
 }

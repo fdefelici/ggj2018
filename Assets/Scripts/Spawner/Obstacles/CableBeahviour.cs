@@ -13,11 +13,14 @@ public class CableBeahviour : ObstacleBeahviour
         transform.Translate(-1 * Vector3.forward * Time.deltaTime * GetSpeed());
     }
 
-    void OnTriggerEnter(Collider col)
+    void OnTriggerEnter(Collider collider)
     {
+        //play sound
+        GetComponent<AudioSource>().Play();
+        //player damage
 
-
-        Destroy(gameObject);
+        //Destroy its self
+        gameObject.GetComponentInChildren<ParticleSystem>().Stop();
     }
 
 }

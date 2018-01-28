@@ -26,9 +26,21 @@ public class SpawnerBehaviour : MonoBehaviour {
 
     void Update() {
         elapsedTimer += Time.deltaTime;
-        if (elapsedTimer >= 0 && elapsedTimer < 30) difficulty = EASY_MODE;
-        else if (elapsedTimer >= 30 && elapsedTimer < 90) difficulty = MEDI_MODE;
-        else difficulty = HARD_MODE;
+        if (elapsedTimer >= 0 && elapsedTimer < 30)
+        {
+            difficulty = EASY_MODE;
+            EnvScrolling.SetSpeed(1);
+        }
+        else if (elapsedTimer >= 30 && elapsedTimer < 90)
+        {
+            difficulty = MEDI_MODE;
+            EnvScrolling.SetSpeed(2);
+        }
+        else
+        {
+            difficulty = HARD_MODE;
+            EnvScrolling.SetSpeed(3);
+        }
 
         if (spawnTimer < envConfig.GetSpawnTimeRateInSeconds()) {
             spawnTimer += Time.deltaTime;
