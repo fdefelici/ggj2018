@@ -17,11 +17,17 @@ public class EnvironmentProps : ScriptableObject {
     [SerializeField]
     private float blockSizeInMeters = 2.5f;
 
-    [Header("Rhythm Parameters")]
+    [Header("Spawn Parameters")]
     [SerializeField]
     private float baseSpeed = 2.0f;
     [SerializeField]
     private float perkRotationSpeed = 2.0f;
+    [SerializeField]
+    private float SpawnObstacleChance = 0.8f;
+    [SerializeField]
+    private float spawnTimeRateInSeconds = 2.0f;
+    [SerializeField]
+    private float SpawnDepthOffset = 10f;
 
     [Header("Disaster Parameters")]
     [SerializeField]
@@ -53,18 +59,30 @@ public class EnvironmentProps : ScriptableObject {
         return lengthInBlock * blockSizeInMeters;
     }
 
-    public float GetPerkRotationSpeed()
-    {
+    public float GetPerkRotationSpeed() {
         return perkRotationSpeed;
     }
 
-    public int GetRotateCameraAfterSeconds()
-    {
+    public int GetRotateCameraAfterSeconds() {
         return rotateCameraAfterSeconds;
     }
 
-    public int GetResizeCameraAfterSeconds()
-    {
+    public int GetResizeCameraAfterSeconds() {
         return resizeCameraAfterSeconds;
     }
+
+    public float GetSpawnObstacleChance() {
+        return SpawnObstacleChance;
+    }
+
+    public float GetSpawnTimeRateInSeconds() {
+        return spawnTimeRateInSeconds;
+    }
+
+    public float GetSpawnDepthOffset() {
+        return SpawnDepthOffset;
+    }
+    //private float SpawnObstacleChance = 0.8f;
+    //private float spawnTimeRateInSeconds = 2.0f;
+    //private float SpawnDepthOffset = 10f;
 }

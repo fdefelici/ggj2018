@@ -7,6 +7,13 @@ public class ObstacleBeahviour : MonoBehaviour {
     [SerializeField]
     private EnvironmentProps envConfig;
 
+    public float originalZ;
+
+    public void Await() {
+        originalZ = transform.position.z;
+    }
+
+
     public ObstaclePlacementEnum GetPlacement() {
         return placement;
     }
@@ -21,6 +28,12 @@ public class ObstacleBeahviour : MonoBehaviour {
 
     public EnvironmentProps GetEnvConfig() {
         return envConfig;
+    }
+
+    void LateUpdate() {
+        //Distruggi se oltrepassa il giocatore.
+        float offsetZ = GetEnvConfig().GetSpawnDepthOffset() + GetEnvConfig().GetLengthInMeters();
+        if (transform.position.z < originalZ - offsetZ) { Destroy(gameObject); }
     }
 
 

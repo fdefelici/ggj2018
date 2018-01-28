@@ -14,17 +14,10 @@ public class SpawnerBehaviour : MonoBehaviour {
     [SerializeField]
     List<GameObject> perks;
 
-    [SerializeField]
-    private float SpawnObstacleChance = 0.8f;
-    [SerializeField]
-    private float spawnTimeRateInSeconds = 2.0f;
-    [SerializeField]
-    private float SpawnDepthOffset = 10f;
-
     private float elapsedTime = 0.0f;
 
 	void Update() {
-        if (elapsedTime < spawnTimeRateInSeconds) {
+        if (elapsedTime < envConfig.GetSpawnTimeRateInSeconds()) {
             elapsedTime += Time.deltaTime;
             return;
         }
@@ -42,7 +35,7 @@ public class SpawnerBehaviour : MonoBehaviour {
         float randomYBlock = (int)obs.GetPlacement();
         float xPos = transform.position.x - width/2 + (randomXBlock * envConfig.GetBlockSizeInMeters() + envConfig.GetBlockSizeInMeters() /2);
         float yPos = transform.position.y + randomYBlock * envConfig.GetBlockSizeInMeters() + envConfig.GetBlockSizeInMeters()/2;
-        float zPos = transform.position.z + length / 2 + SpawnDepthOffset;
+        float zPos = transform.position.z + length / 2 + envConfig.GetSpawnDepthOffset();
 
         GameObject instance = Instantiate(obstaclePrefab, transform, true);
         instance.transform.position = new Vector3(xPos, yPos, zPos);
@@ -52,7 +45,7 @@ public class SpawnerBehaviour : MonoBehaviour {
     private GameObject pickObjToSpawn() {
         GameObject picked = null;
         float drawDice = UnityEngine.Random.Range(1, 100) / 100.0f;
-        if (drawDice <= SpawnObstacleChance) {
+        if (drawDice <= envConfig.GetSpawnObstacleChance()) {
             int size = obstacles.Count;
             int index = UnityEngine.Random.Range(0, size);
             picked = obstacles[index];
