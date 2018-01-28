@@ -33,8 +33,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1707877333372476}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.15, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,12 +53,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   envConfig: {fileID: 11400000, guid: 377103d0356bf734e91ab06574f8f823, type: 2}
   obstacles:
-  - {fileID: 1201416146425666, guid: c372b138912ef1a459ebbee374731f5f, type: 2}
-  - {fileID: 1201416146425666, guid: 87255154052567e4ba87b2a6aab40d09, type: 2}
+  - {fileID: 1308293840948728, guid: bf2ccdfebc7e00f479c31f55ce2db127, type: 2}
   - {fileID: 1201416146425666, guid: 2749b0651fc4ff745b5685491930cbac, type: 2}
   perks:
   - {fileID: 1357256059068282, guid: 3e50a14e530a7b7418fcec5cffd02d5e, type: 2}
   - {fileID: 1357256059068282, guid: 87eb4e582706d8749a78056a6311b70c, type: 2}
-  SpawnObstacleChance: 0.9
-  spawnTimeRateInSeconds: 5
-  SpawnDepthOffset: 10

@@ -27,4 +27,12 @@ public class SparkBeahviour : ObstacleBeahviour {
         transform.Translate(vertical + horizontal);
     }
 
+    void OnTriggerEnter(Collider collider)
+    {
+        //play sound
+
+        //do damage
+        Destroy(gameObject);
+    }
+
 }
