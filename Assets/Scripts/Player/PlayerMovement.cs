@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 dir = GetMovementDirection();
 
-        Vector3 newPos = transform.position + (dir * speed * Time.deltaTime);
+        //Vector3 newPos = transform.position + (dir * speed * Time.deltaTime);
 
         controller.Move(dir * speed * Time.deltaTime);
     }
@@ -81,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
    
     private Vector3 GetMovementDirection()
     {
+        /*
         Camera c = null;
         if (player == 1)
         {
@@ -90,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
         {
             c = GameObject.FindGameObjectWithTag("Camera2").GetComponent<Camera>();
         }
+        */
         //Vector3 dir = hor * c.transform.right + ver * c.transform.forward;
         Vector3 dir = Vector3.right * hor + Vector3.forward * ver;
         dir.y = 0;

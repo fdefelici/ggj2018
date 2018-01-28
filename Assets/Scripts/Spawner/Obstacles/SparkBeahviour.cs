@@ -11,7 +11,6 @@ public class SparkBeahviour : ObstacleBeahviour {
     public void Update () {
         Vector3 vertical = -1 * Vector3.forward * Time.deltaTime * GetSpeed();
         Vector3 horizontal = horizontalDirection * Vector3.right * Time.deltaTime * GetSpeed();
-        float rightSize = GetEnvConfig().GetWidthInMeters() / 2 - GetEnvConfig().GetBlockSizeInMeters();
 
         float currentX = transform.localPosition.x;
         float currentXRight = currentX + GetEnvConfig().GetBlockSizeInMeters()/2;
