@@ -17,7 +17,8 @@ public class CanvasBehaviours : MonoBehaviour
 
     private IEnumerator EndGameInSec()
     {
-        yield return new WaitForSeconds(6f);
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(6f);
         UnityEngine.SceneManagement.SceneManager.LoadScene("End");
     }
 
@@ -52,7 +53,8 @@ public class CanvasBehaviours : MonoBehaviour
             Minutes.GetComponent<Image>().sprite = Numbers[0];
             FirstSecond.GetComponent<Image>().sprite = Numbers[0];
             SecondSecond.GetComponent<Image>().sprite = Numbers[0];
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Start");
+            //UnityEngine.SceneManagement.SceneManager.LoadScene("Start");
+            StartCoroutine("EndGameInSec");
         }
         else
         {
