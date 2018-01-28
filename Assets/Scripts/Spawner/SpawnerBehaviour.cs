@@ -8,38 +8,60 @@ public class SpawnerBehaviour : MonoBehaviour {
     [SerializeField]
     private EnvironmentProps envConfig;
 
-    //TODO: Destroy linked with pooling
     [SerializeField]
     List<GameObject> obstacles;
     [SerializeField]
     List<GameObject> perks;
 
-    private float elapsedTime = 0.0f;
+    private float spawnTimer = 0.0f;
+    private float elapsedTimer = 0.0f;
 
-	void Update() {
-        if (elapsedTime < envConfig.GetSpawnTimeRateInSeconds()) {
-            elapsedTime += Time.deltaTime;
+    private static int EASY_MODE = 1;
+    private static int MEDI_MODE = 2;
+    private static int HARD_MODE = 3;
+
+    //[SerializeField]
+    //[Range(1, 3)]
+    private int difficulty = EASY_MODE;
+
+    void Update() {
+        elapsedTimer += Time.deltaTime;
+        if (elapsedTimer >= 0 && elapsedTimer < 30) difficulty = EASY_MODE;
+        else if (elapsedTimer >= 30 && elapsedTimer < 90) difficulty = MEDI_MODE;
+        else difficulty = HARD_MODE;
+
+        if (spawnTimer < envConfig.GetSpawnTimeRateInSeconds()) {
+            spawnTimer += Time.deltaTime;
             return;
         }
+        spawnTimer = 0;
 
-        elapsedTime = 0;
+        int numberOfMaxSpawn = 0;
+        if (difficulty == EASY_MODE) numberOfMaxSpawn = 1;
+        else if (difficulty == MEDI_MODE) numberOfMaxSpawn = 2;
+        else numberOfMaxSpawn = 3;
 
-        GameObject obstaclePrefab = pickObjToSpawn();
-        ObstacleBeahviour obs = obstaclePrefab.GetComponent<ObstacleBeahviour>();
+        int numberOfSpawn = UnityEngine.Random.Range(1, numberOfMaxSpawn);
 
-
+        int i = 0;
+        int initialXBlock = UnityEngine.Random.Range(0, envConfig.GetWidthInBlock());
         float width = envConfig.GetWidthInMeters();
         float length = envConfig.GetLengthInMeters();
+        do {
+            GameObject obstaclePrefab = pickObjToSpawn();
+            ObstacleBeahviour obs = obstaclePrefab.GetComponent<ObstacleBeahviour>();
+            float randomXBlock = (initialXBlock + i) % envConfig.GetWidthInBlock();
+            float randomYBlock = (int)obs.GetPlacement();
+            float xPos = transform.position.x - width / 2 + (randomXBlock * envConfig.GetBlockSizeInMeters() + envConfig.GetBlockSizeInMeters() / 2);
+            float yPos = transform.position.y + randomYBlock * envConfig.GetBlockSizeInMeters() + envConfig.GetBlockSizeInMeters() / 2;
+            float zPos = transform.position.z + length / 2 + envConfig.GetSpawnDepthOffset();
 
-        float randomXBlock = UnityEngine.Random.Range(0, envConfig.GetWidthInBlock());
-        float randomYBlock = (int)obs.GetPlacement();
-        float xPos = transform.position.x - width/2 + (randomXBlock * envConfig.GetBlockSizeInMeters() + envConfig.GetBlockSizeInMeters() /2);
-        float yPos = transform.position.y + randomYBlock * envConfig.GetBlockSizeInMeters() + envConfig.GetBlockSizeInMeters()/2;
-        float zPos = transform.position.z + length / 2 + envConfig.GetSpawnDepthOffset();
+            GameObject instance = Instantiate(obstaclePrefab, transform, true);
+            instance.transform.position = new Vector3(xPos, yPos, zPos);
+            instance.transform.rotation = Quaternion.identity;
 
-        GameObject instance = Instantiate(obstaclePrefab, transform, true);
-        instance.transform.position = new Vector3(xPos, yPos, zPos);
-        instance.transform.rotation = Quaternion.identity;
+            i++;
+        } while (i < numberOfSpawn);
     }
 
     private GameObject pickObjToSpawn() {

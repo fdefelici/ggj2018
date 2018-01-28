@@ -35,6 +35,7 @@ public class EnvironmentProps : ScriptableObject {
     [SerializeField]
     private int resizeCameraAfterSeconds = 120;
 
+
     
     public float GetBaseSpeed() {
         return baseSpeed;
@@ -82,7 +83,5 @@ public class EnvironmentProps : ScriptableObject {
     public float GetSpawnDepthOffset() {
         return SpawnDepthOffset;
     }
-    //private float SpawnObstacleChance = 0.8f;
-    //private float spawnTimeRateInSeconds = 2.0f;
-    //private float SpawnDepthOffset = 10f;
+    
 }

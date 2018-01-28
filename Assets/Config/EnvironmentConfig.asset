@@ -17,5 +17,8 @@ MonoBehaviour:
   blockSizeInMeters: 2.5
   baseSpeed: 15.25
   perkRotationSpeed: 360
+  SpawnObstacleChance: 0.8
+  spawnTimeRateInSeconds: 2
+  SpawnDepthOffset: 10
   rotateCameraAfterSeconds: 60
   resizeCameraAfterSeconds: 120
