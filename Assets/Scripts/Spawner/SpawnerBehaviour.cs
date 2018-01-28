@@ -8,7 +8,6 @@ public class SpawnerBehaviour : MonoBehaviour {
     [SerializeField]
     private EnvironmentProps envConfig;
 
-    //TODO: Spawning Algorithm
     //TODO: Destroy linked with pooling
     [SerializeField]
     List<GameObject> obstacles;
@@ -33,7 +32,6 @@ public class SpawnerBehaviour : MonoBehaviour {
         elapsedTime = 0;
 
         GameObject obstaclePrefab = pickObjToSpawn();
-        //Debug.Log(obstaclePrefab.name);
         ObstacleBeahviour obs = obstaclePrefab.GetComponent<ObstacleBeahviour>();
 
 
@@ -42,10 +40,9 @@ public class SpawnerBehaviour : MonoBehaviour {
 
         float randomXBlock = UnityEngine.Random.Range(0, envConfig.GetWidthInBlock());
         float randomYBlock = (int)obs.GetPlacement();
-        float xPos = -width/2 + (randomXBlock * envConfig.GetBlockSizeInMeters() + envConfig.GetBlockSizeInMeters() /2);
-        float yPos = randomYBlock * envConfig.GetBlockSizeInMeters() + envConfig.GetBlockSizeInMeters()/2;
-        float zPos = length / 2 + SpawnDepthOffset;
-
+        float xPos = transform.position.x - width/2 + (randomXBlock * envConfig.GetBlockSizeInMeters() + envConfig.GetBlockSizeInMeters() /2);
+        float yPos = transform.position.y + randomYBlock * envConfig.GetBlockSizeInMeters() + envConfig.GetBlockSizeInMeters()/2;
+        float zPos = transform.position.z + length / 2 + SpawnDepthOffset;
 
         GameObject instance = Instantiate(obstaclePrefab, transform, true);
         instance.transform.position = new Vector3(xPos, yPos, zPos);

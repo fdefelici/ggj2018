@@ -17,3 +17,5 @@ MonoBehaviour:
   blockSizeInMeters: 2.5
   baseSpeed: 15.25
   perkRotationSpeed: 360
+  rotateCameraAfterSeconds: 60
+  resizeCameraAfterSeconds: 120
