@@ -1769,6 +1769,11 @@ Prefab:
       propertyPath: camera2
       value: 
       objectReference: {fileID: 1592498454}
+    - target: {fileID: 114490318825974238, guid: b8033af04b2fc514daf970eb1181007f,
+        type: 2}
+      propertyPath: crtNoiseDuration
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8033af04b2fc514daf970eb1181007f, type: 2}
   m_IsPrefabParent: 0
@@ -2817,7 +2822,7 @@ MonoBehaviour:
   swapSpeed: 20
   timeBeforeReturn: 2
   crtNoiseAudioClip: {fileID: 8300000, guid: cec5fc99ccf78144794f124cbece3c82, type: 3}
-  cosePazzeDuration: 3
+  crtNoiseDuration: 3
   profilePlayer1: {fileID: 11400000, guid: 427680d8f6056af4eb3b847d4a2595ea, type: 2}
   profilePlayer2: {fileID: 11400000, guid: 885eed1cd2d4c4643a22fb83df5a02c5, type: 2}
 --- !u!4 &2083481380
@@ -2889,7 +2894,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -2913,7 +2918,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!1001 &2133487383
 Prefab:
   m_ObjectHideFlags: 0

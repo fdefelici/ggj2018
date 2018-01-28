@@ -40,11 +40,12 @@ public class EffectsCamera : MonoBehaviour {
     [Header("Crt Noise effect")]
     public AudioClip crtNoiseAudioClip;
     private AudioSource audioSource;
-    public float cosePazzeDuration;
+    public float crtNoiseDuration;
     public PostProcessingProfile profilePlayer1;
     public PostProcessingProfile profilePlayer2;
     private PostProcessingProfile activeProfile;
     private bool cameraFlipped;
+    private List<IEnumerator> crtNoiseActive;
 
 
     void Awake()
@@ -56,7 +57,7 @@ public class EffectsCamera : MonoBehaviour {
         profilePlayer1.colorGrading.enabled = false;
         profilePlayer1.grain.enabled = false;
         audioSource = GetComponent<AudioSource>();
-
+        crtNoiseActive = new List<IEnumerator>();
     }
 
 
@@ -77,6 +78,8 @@ public class EffectsCamera : MonoBehaviour {
 
     public void CameraCRTNoise(GameObject hitGameobject)
     {
+        if (activeProfile != null) return;      //is alredy active
+
         if(hitGameobject == player1.gameObject)
         {
             activeProfile = (cameraFlipped ? profilePlayer1 : profilePlayer2);
@@ -90,14 +93,18 @@ public class EffectsCamera : MonoBehaviour {
         activeProfile.grain.enabled = true;
         audioSource.clip = crtNoiseAudioClip;
         audioSource.Play();
-        StartCoroutine("DisableCRTNoise");
+
+        IEnumerator crt = DisableCRTNoise();
+        crtNoiseActive.Add(crt);
+        StartCoroutine(crt);
     }
     private IEnumerator DisableCRTNoise()
     {
-        yield return new WaitForSeconds(cosePazzeDuration);
+        yield return new WaitForSeconds(crtNoiseDuration);
         activeProfile.bloom.enabled = false;
         activeProfile.colorGrading.enabled = false;
         activeProfile.grain.enabled = false;
+        activeProfile = null;
         audioSource.Stop();
     }
 
