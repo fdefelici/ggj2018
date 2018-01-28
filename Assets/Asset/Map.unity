@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1042,6 +1042,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &736129865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 736129856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a3584ae1c6b0d469bd2848add54b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &754273275 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100004, guid: 1c0627009faafca499f2f6cb7e0f109d, type: 3}
@@ -1731,7 +1742,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 03250a7458e09e2458f7690f2ad70a51, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.37
+      value: 6.69
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 03250a7458e09e2458f7690f2ad70a51, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1848,6 +1859,12 @@ Prefab:
       propertyPath: crtNoiseDuration
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114490318825974238, guid: b8033af04b2fc514daf970eb1181007f,
+        type: 2}
+      propertyPath: postProcessingConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: 0913781bcdcde8541a6b405ad78e5898,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8033af04b2fc514daf970eb1181007f, type: 2}
   m_IsPrefabParent: 0
@@ -1967,34 +1984,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4925494933289790, guid: 3b18625444f46c04381924e98e230152,
     type: 2}
   m_PrefabInternal: {fileID: 85809837}
---- !u!1 &1616502059
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 1850869482}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1616502060}
-  m_Layer: 0
-  m_Name: Missing Prefab
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1616502060
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 1850869482}
-  m_GameObject: {fileID: 1616502059}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2055448546}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1643424053 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100004, guid: 1c0627009faafca499f2f6cb7e0f109d, type: 3}
@@ -2137,34 +2126,6 @@ Transform:
   m_Father: {fileID: 319842498}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 36.43, y: 89.1, z: 0}
---- !u!1 &1813291937
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 1094691737}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1813291938}
-  m_Layer: 0
-  m_Name: Missing Prefab
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1813291938
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 1094691737}
-  m_GameObject: {fileID: 1813291937}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 736129859}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1850869482
 Prefab:
   m_ObjectHideFlags: 0
@@ -2765,6 +2726,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &2055448552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2055448543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a3584ae1c6b0d469bd2848add54b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2066662826
 Prefab:
   m_ObjectHideFlags: 0
@@ -2872,6 +2844,8 @@ MonoBehaviour:
   crtNoiseDuration: 3
   profilePlayer1: {fileID: 11400000, guid: 427680d8f6056af4eb3b847d4a2595ea, type: 2}
   profilePlayer2: {fileID: 11400000, guid: 885eed1cd2d4c4643a22fb83df5a02c5, type: 2}
+  postProcessingConfig: {fileID: 11400000, guid: 0913781bcdcde8541a6b405ad78e5898,
+    type: 2}
 --- !u!4 &2083481380
 Transform:
   m_ObjectHideFlags: 0

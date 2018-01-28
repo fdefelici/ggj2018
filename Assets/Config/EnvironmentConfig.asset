@@ -19,6 +19,6 @@ MonoBehaviour:
   perkRotationSpeed: 360
   SpawnObstacleChance: 0.8
   spawnTimeRateInSeconds: 2
-  SpawnDepthOffset: 10
+  SpawnDepthOffset: 35
   rotateCameraAfterSeconds: 60
   resizeCameraAfterSeconds: 120

@@ -7,7 +7,7 @@ public class ObstacleBeahviour : MonoBehaviour {
     [SerializeField]
     private EnvironmentProps envConfig;
 
-    public float originalZ;
+    protected float originalZ;
 
     public void Await() {
         originalZ = transform.position.z;

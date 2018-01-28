@@ -15,7 +15,12 @@ public class PlayerJump : MonoBehaviour
 
     private CharacterController controller;
     private PlayerMovement movement;
-    private bool gravityEnabled;
+    private bool gravityEnabled = true;
+    public bool IsGravityEnabled()
+    {
+        return gravityEnabled;
+    }
+
 
     public AudioClip jumpClip;
     private AudioSource audioSource;
