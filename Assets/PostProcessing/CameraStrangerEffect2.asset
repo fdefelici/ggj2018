@@ -25,7 +25,7 @@ MonoBehaviour:
         motionVectorsResolution: 24
         motionVectorsAmplitude: 64
   fog:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       excludeSkybox: 1
   antialiasing:
@@ -97,22 +97,22 @@ MonoBehaviour:
       logMin: -8
       logMax: 4
   bloom:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       bloom:
-        intensity: 0.76
-        threshold: 0.54
-        softKnee: 1
+        intensity: 3.1
+        threshold: 2.08
+        softKnee: 0.85
         radius: 7
         antiFlicker: 1
       lensDirt:
         texture: {fileID: 0}
         intensity: 3
   colorGrading:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       tonemapping:
-        tonemapper: 2
+        tonemapper: 1
         neutralBlackIn: 0.1
         neutralWhiteIn: 1
         neutralBlackOut: -0.09
@@ -120,17 +120,17 @@ MonoBehaviour:
         neutralWhiteLevel: 20
         neutralWhiteClip: 10
       basic:
-        postExposure: 0
+        postExposure: 0.15
         temperature: 1
-        tint: -100
-        hueShift: -110
+        tint: 0
+        hueShift: 16
         saturation: 1.65
         contrast: 1.02
       channelMixer:
-        red: {x: 0.5, y: 0.5, z: 0.5}
-        green: {x: 0.5, y: 0.5, z: 0.5}
-        blue: {x: 0.5, y: 0.5, z: 0.5}
-        currentEditingChannel: 2
+        red: {x: 1, y: 0, z: 0}
+        green: {x: 0, y: 1, z: 0}
+        blue: {x: 0, y: 0, z: 1}
+        currentEditingChannel: 0
       colorWheels:
         mode: 0
         log:
@@ -138,9 +138,9 @@ MonoBehaviour:
           power: {r: 1, g: 0.9924967, b: 0.96998686, a: 0}
           offset: {r: 1, g: 1, b: 1, a: 0}
         linear:
-          lift: {r: 1, g: 0.9744938, b: 0.9888155, a: 0}
-          gamma: {r: 1, g: 1, b: 1, a: 0}
-          gain: {r: 1, g: 1, b: 1, a: 0}
+          lift: {r: 1, g: 0.92760473, b: 0.84483653, a: 0}
+          gamma: {r: 0.80194694, g: 1, b: 0.84034854, a: 0}
+          gain: {r: 0.8189151, g: 0.4483388, b: 1, a: 0}
       curves:
         master:
           curve:
