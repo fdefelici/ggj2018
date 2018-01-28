@@ -46,16 +46,29 @@ public class EffectsCamera : MonoBehaviour {
     private PostProcessingProfile activeProfile;
     private bool cameraFlipped;
     private List<IEnumerator> crtNoiseActive;
+    public PostProcessingConfig postProcessingConfig;
 
 
     void Awake()
     {
-        profilePlayer2.bloom.enabled = false;
-        profilePlayer2.colorGrading.enabled = false;
+        //profilePlayer2.bloom.enabled = false;
+        //profilePlayer2.colorGrading.enabled = false;
         profilePlayer2.grain.enabled = false;
-        profilePlayer1.bloom.enabled = false;
-        profilePlayer1.colorGrading.enabled = false;
+        ColorGradingModel.Settings settings = profilePlayer2.colorGrading.settings;
+        settings.channelMixer.red = postProcessingConfig.GetDefaultRed();
+        settings.channelMixer.green = postProcessingConfig.GetDefaultGreen();
+        settings.channelMixer.blue = postProcessingConfig.GetDefaultBlue();
+        profilePlayer2.colorGrading.settings = settings;
+
+        //profilePlayer1.bloom.enabled = false;
+        //profilePlayer1.colorGrading.enabled = false;
         profilePlayer1.grain.enabled = false;
+        settings = profilePlayer1.colorGrading.settings;
+        settings.channelMixer.red = postProcessingConfig.GetDefaultRed();
+        settings.channelMixer.green = postProcessingConfig.GetDefaultGreen();
+        settings.channelMixer.blue = postProcessingConfig.GetDefaultBlue();
+        profilePlayer1.colorGrading.settings = settings;
+
         audioSource = GetComponent<AudioSource>();
         crtNoiseActive = new List<IEnumerator>();
     }
@@ -88,9 +101,20 @@ public class EffectsCamera : MonoBehaviour {
         {
             activeProfile = (cameraFlipped ? profilePlayer2 : profilePlayer1);
         }
-        activeProfile.bloom.enabled = true;
-        activeProfile.colorGrading.enabled = true;
+
+        //set values
+        //activeProfile.bloom.enabled = true;
+        //activeProfile.colorGrading.enabled = true;
         activeProfile.grain.enabled = true;
+
+        ColorGradingModel.Settings settings = activeProfile.colorGrading.settings;
+        settings.channelMixer.red = postProcessingConfig.GetCrtRed();
+        settings.channelMixer.green = postProcessingConfig.GetCrtGreen();
+        settings.channelMixer.blue = postProcessingConfig.GetCrtBlue();
+        activeProfile.colorGrading.settings = settings;
+
+
+        //play sound
         audioSource.clip = crtNoiseAudioClip;
         audioSource.Play();
 
@@ -101,9 +125,16 @@ public class EffectsCamera : MonoBehaviour {
     private IEnumerator DisableCRTNoise()
     {
         yield return new WaitForSeconds(crtNoiseDuration);
-        activeProfile.bloom.enabled = false;
-        activeProfile.colorGrading.enabled = false;
+        //activeProfile.bloom.enabled = false;
+        //activeProfile.colorGrading.enabled = fals;e
         activeProfile.grain.enabled = false;
+
+        ColorGradingModel.Settings settings = activeProfile.colorGrading.settings;
+        settings.channelMixer.red = postProcessingConfig.GetDefaultRed();
+        settings.channelMixer.green = postProcessingConfig.GetDefaultGreen();
+        settings.channelMixer.blue = postProcessingConfig.GetDefaultBlue();
+        activeProfile.colorGrading.settings = settings;
+
         activeProfile = null;
         audioSource.Stop();
     }
