@@ -46,6 +46,7 @@ public class CanvasBehaviours : MonoBehaviour
             Minutes.GetComponent<Image>().sprite = Numbers[0];
             FirstSecond.GetComponent<Image>().sprite = Numbers[0];
             SecondSecond.GetComponent<Image>().sprite = Numbers[0];
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Start");
         }
         else
         {

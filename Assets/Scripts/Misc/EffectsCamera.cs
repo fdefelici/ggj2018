@@ -222,6 +222,8 @@ public class EffectsCamera : MonoBehaviour {
         player2.GetComponent<PlayerMovement>().enabled = false;
         player1.GetComponent<PlayerJump>().enabled = false;
         player2.GetComponent<PlayerJump>().enabled = false;
+        player1.GetComponent<CharacterController>().enabled = false;
+        player2.GetComponent<CharacterController>().enabled = false;
 
         //play sound
         audioSource.clip = switchClip;
@@ -257,6 +259,8 @@ public class EffectsCamera : MonoBehaviour {
         player2.GetComponent<PlayerMovement>().enabled = true;
         player1.GetComponent<PlayerJump>().enabled = true;
         player2.GetComponent<PlayerJump>().enabled = true;
+        player1.GetComponent<CharacterController>().enabled = true;
+        player2.GetComponent<CharacterController>().enabled = true;
 
     }
 

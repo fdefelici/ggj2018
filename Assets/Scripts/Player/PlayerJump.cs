@@ -65,7 +65,7 @@ public class PlayerJump : MonoBehaviour
         }
         else if(p == 2)
         {
-            return (Input.GetKeyDown(KeyCode.RightControl) || Input.GetKeyDown(KeyCode.Joystick2Button1));    //recalibration
+            return (Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.Joystick2Button1));    //recalibration
         }
         return false;
     }
