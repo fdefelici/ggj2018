@@ -46,7 +46,7 @@ public class PlayerJump : MonoBehaviour
             gravityEnabled = true;
             gravityAccumulator = jumpForce;
             //play sound
-            //audioSource.clip = jumpClip;
+            audioSource.clip = jumpClip;
             audioSource.Play();
         }
     }
