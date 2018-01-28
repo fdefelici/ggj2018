@@ -15,6 +15,12 @@ public class CanvasBehaviours : MonoBehaviour
     private float delta;
     private int count;
 
+    private IEnumerator EndGameInSec()
+    {
+        yield return new WaitForSeconds(6f);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("End");
+    }
+
 	// Use this for initialization
 	void Start ()
     {
